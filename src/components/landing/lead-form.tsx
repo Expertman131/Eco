@@ -22,6 +22,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
 import { SITE } from "@/lib/site";
+import { assetPath } from "@/lib/paths";
 
 const formSchema = z.object({
   name: z.string().trim().min(2, "Укажите ваше имя"),
@@ -49,7 +50,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 // На серверной сборке заявки уходят в /api/leads (SQLite). На статическом
 // хостинге (GitHub Pages) адрес приёма задаётся NEXT_PUBLIC_LEAD_ENDPOINT.
-const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT || "/api/leads";
+const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT || assetPath("/api/leads");
 
 export function LeadForm() {
   const { toast } = useToast();
