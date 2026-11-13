@@ -58,10 +58,10 @@ export function Process() {
             <Reveal delay={0.12}>
               <div className="relative mt-8 overflow-hidden rounded-2xl border shadow-lg">
                 <Image
-                  src="/images/process-loading.png"
+                  src="/images/process-loading.jpg"
                   alt="Специалист ЭкоТехПро готовит списанную компьютерную технику к вывозу со склада клиента"
-                  width={1152}
-                  height={864}
+                  width={1024}
+                  height={768}
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-x-4 bottom-4 rounded-xl bg-white/95 p-4 shadow-md backdrop-blur">

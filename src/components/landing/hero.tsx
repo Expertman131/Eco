@@ -19,7 +19,7 @@ export function Hero() {
         className="absolute -top-40 right-0 h-[480px] w-[480px] rounded-full bg-primary/25 blur-[140px]"
         aria-hidden
       />
-      <div className="relative mx-auto max-w-7xl px-4 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 pb-14 lg:px-8 lg:pb-20">
         <div className="grid gap-10 py-14 lg:py-20 lg:grid-cols-2 lg:items-center">
           <div>
             <Reveal>
@@ -80,10 +80,10 @@ export function Hero() {
           <Reveal delay={0.2} className="relative">
             <div className="relative overflow-hidden rounded-2xl border border-emerald-400/20 shadow-2xl shadow-black/40">
               <Image
-                src="/images/hero-facility.png"
+                src="/images/hero-facility.jpg"
                 alt="Специалисты ЭкоТехПро сортируют списанную компьютерную технику на производственной площадке"
-                width={1440}
-                height={736}
+                width={1792}
+                height={1024}
                 priority
                 className="h-full w-full object-cover"
               />
@@ -105,13 +105,17 @@ export function Hero() {
 
         {/* Stats */}
         <Reveal delay={0.1}>
-          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-emerald-400/20 bg-emerald-400/10 mb-0 lg:mb-4 text-center sm:grid-cols-4">
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-emerald-400/20 bg-emerald-400/10 text-center sm:grid-cols-4">
             {heroStats.map((stat) => (
               <div key={stat.label} className="bg-[oklch(0.26_0.03_160)]/80 px-4 py-6">
                 <dt className="sr-only">{stat.label}</dt>
-                <dd className="font-display text-3xl font-extrabold text-emerald-300">{stat.value}</dd>
-                <dd className="mt-1 text-xs font-medium uppercase tracking-wide text-emerald-50/60">
-                  {stat.label}
+                <dd>
+                  <span className="block font-display text-3xl font-extrabold text-emerald-300">
+                    {stat.value}
+                  </span>
+                  <span className="mt-1 block text-xs font-medium uppercase tracking-wide text-emerald-50/60">
+                    {stat.label}
+                  </span>
                 </dd>
               </div>
             ))}

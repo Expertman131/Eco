@@ -46,7 +46,7 @@ export function SiteFooter() {
             </ul>
           </nav>
 
-          <div>
+          <div id="contacts" className="scroll-mt-28">
             <h3 className="font-display text-sm font-bold uppercase tracking-wider text-emerald-300">
               Контакты
             </h3>

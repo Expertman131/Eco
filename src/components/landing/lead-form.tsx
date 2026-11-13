@@ -40,7 +40,7 @@ const formSchema = z.object({
   equipment: z.string().trim().optional(),
   quantity: z.string().trim().optional(),
   message: z.string().trim().max(2000).optional(),
-  consent: z.literal(true, {
+  consent: z.boolean().refine((v) => v === true, {
     error: "Необходимо согласие на обработку данных",
   }),
 });
@@ -69,6 +69,7 @@ export function LeadForm() {
       equipment: "",
       quantity: "",
       message: "",
+      consent: false,
     },
   });
 

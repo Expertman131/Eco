@@ -32,6 +32,15 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env
+
+# runtime data (схема БД создаётся командой db:push)
+/db/*.db
+/db/*.db-journal
+
+# служебные каталоги локальной разработки
+/.zscripts/shots/
+/vibe_images/
 
 # vercel
 .vercel

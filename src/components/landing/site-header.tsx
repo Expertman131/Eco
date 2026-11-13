@@ -84,8 +84,8 @@ export function SiteHeader() {
                 <span className="font-display text-base font-bold">{SITE.phoneMain}</span>
                 <span className="text-[11px] text-muted-foreground">{SITE.phoneFree} — бесплатно по РФ</span>
               </a>
-              <a href={SITE.phoneMainHref} className="flex xl:hidden items-center xl:hidden sm:items-center">
-                <Button size="icon" variant="outline" className="sm:hidden" aria-label="Позвонить">
+              <a href={SITE.phoneMainHref} className="xl:hidden">
+                <Button size="icon" variant="outline" aria-label="Позвонить">
                   <Phone className="h-4 w-4" />
                 </Button>
               </a>

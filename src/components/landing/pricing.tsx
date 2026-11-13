@@ -52,24 +52,32 @@ export function Pricing() {
         </Reveal>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-3 lg:gap-8 lg:mt-14">
-          <Reveal className="lg:col-span-2">
+          <Reveal className="min-w-0 lg:col-span-2">
             <div className="overflow-hidden rounded-2xl border bg-card shadow-sm">
               <Table>
                 <TableHeader>
                   <TableRow className="bg-secondary/70 hover:bg-secondary/70">
-                    <TableHead className="h-12 font-display text-sm font-bold">Тип техники</TableHead>
-                    <TableHead className="h-12 text-right font-display text-sm font-bold">Цена от</TableHead>
-                    <TableHead className="h-12 text-right font-display text-sm font-bold">До</TableHead>
-                    <TableHead className="h-12 hidden sm:table-cell font-display text-sm font-bold">Ед. измерения</TableHead>
+                    <TableHead className="h-12 px-4 font-display text-sm font-bold sm:px-5">Тип техники</TableHead>
+                    <TableHead className="h-12 px-4 text-right font-display text-sm font-bold sm:px-5">Цена от</TableHead>
+                    <TableHead className="h-12 hidden px-4 text-right font-display text-sm font-bold sm:table-cell sm:px-5">До</TableHead>
+                    <TableHead className="h-12 hidden px-4 font-display text-sm font-bold sm:table-cell sm:px-5">Ед. измерения</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {priceRows.map((row) => (
                     <TableRow key={row.item} className="transition-colors hover:bg-accent/50">
-                      <TableCell className="py-3.5 font-medium">{row.item}</TableCell>
-                      <TableCell className="py-3.5 text-right font-display font-bold text-primary">{row.from}</TableCell>
-                      <TableCell className="py-3.5 text-right text-muted-foreground">{row.to}</TableCell>
-                      <TableCell className="py-3.5 hidden sm:table-cell text-muted-foreground">{row.note}</TableCell>
+                      <TableCell className="px-4 py-3.5 font-medium whitespace-normal sm:px-5 sm:whitespace-nowrap">
+                        {row.item}
+                      </TableCell>
+                      <TableCell className="px-4 py-3.5 text-right font-display font-bold text-primary sm:px-5">
+                        {row.from}
+                        <span className="font-sans font-normal text-muted-foreground sm:hidden">
+                          {" — "}
+                          {row.to}
+                        </span>
+                      </TableCell>
+                      <TableCell className="hidden px-4 py-3.5 text-right text-muted-foreground sm:table-cell sm:px-5">{row.to}</TableCell>
+                      <TableCell className="hidden px-4 py-3.5 text-muted-foreground sm:table-cell sm:px-5">{row.note}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
