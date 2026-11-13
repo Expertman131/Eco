@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { MessageSquareText, FileSignature, ClipboardCheck, Truck, Factory, FolderCheck } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
+import { assetPath } from "@/lib/paths";
 
 const steps = [
   {
@@ -58,7 +59,7 @@ export function Process() {
             <Reveal delay={0.12}>
               <div className="relative mt-8 overflow-hidden rounded-2xl border shadow-lg">
                 <Image
-                  src="/images/process-loading.jpg"
+                  src={assetPath("/images/process-loading.jpg")}
                   alt="Специалист ЭкоТехПро готовит списанную компьютерную технику к вывозу со склада клиента"
                   width={1024}
                   height={768}

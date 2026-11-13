@@ -47,6 +47,10 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
+// На серверной сборке заявки уходят в /api/leads (SQLite). На статическом
+// хостинге (GitHub Pages) адрес приёма задаётся NEXT_PUBLIC_LEAD_ENDPOINT.
+const LEAD_ENDPOINT = process.env.NEXT_PUBLIC_LEAD_ENDPOINT || "/api/leads";
+
 export function LeadForm() {
   const { toast } = useToast();
   const [submitted, setSubmitted] = useState(false);
@@ -77,15 +81,15 @@ export function LeadForm() {
 
   const onSubmit = async (values: FormValues) => {
     try {
-      const response = await fetch("/api/leads", {
+      const response = await fetch(LEAD_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
-      const data = await response.json();
+      const data = await response.json().catch(() => null);
 
-      if (!response.ok || !data.ok) {
-        throw new Error(data.error || "Ошибка отправки");
+      if (!response.ok || !data?.ok) {
+        throw new Error(data?.error || "Ошибка отправки");
       }
 
       setSubmitted(true);
@@ -98,10 +102,9 @@ export function LeadForm() {
       toast({
         variant: "destructive",
         title: "Не удалось отправить заявку",
-        description:
-          error instanceof Error
-            ? error.message
-            : "Попробуйте позже или позвоните нам напрямую.",
+        description: `${
+          error instanceof Error ? error.message : "Попробуйте позже"
+        }. Позвоните нам: ${SITE.phoneMain}`,
       });
     }
   };

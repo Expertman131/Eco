@@ -3,6 +3,7 @@ import { ShieldCheck, FileCheck2, ArrowRight, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/landing/reveal";
 import { SITE } from "@/lib/site";
+import { assetPath } from "@/lib/paths";
 
 const heroStats = [
   { value: SITE.stats.years, label: "лет на рынке" },
@@ -80,7 +81,7 @@ export function Hero() {
           <Reveal delay={0.2} className="relative">
             <div className="relative overflow-hidden rounded-2xl border border-emerald-400/20 shadow-2xl shadow-black/40">
               <Image
-                src="/images/hero-facility.jpg"
+                src={assetPath("/images/hero-facility.jpg")}
                 alt="Специалисты ЭкоТехПро сортируют списанную компьютерную технику на производственной площадке"
                 width={1792}
                 height={1024}

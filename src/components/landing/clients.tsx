@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Building2, Landmark, Banknote as BankIcon, Server, Signal, Tractor } from "lucide-react";
 import { Reveal } from "@/components/landing/reveal";
+import { assetPath } from "@/lib/paths";
 
 const segments = [
   {
@@ -43,7 +44,7 @@ export function Clients() {
           <Reveal>
             <div className="relative overflow-hidden rounded-2xl border shadow-lg order-2 lg:order-1">
               <Image
-                src="/images/components.png"
+                src={assetPath("/images/components.png")}
                 alt="Изъятые электронные платы и компоненты отсортированы по контейнерам для извлечения драгоценных металлов"
                 width={1152}
                 height={864}
